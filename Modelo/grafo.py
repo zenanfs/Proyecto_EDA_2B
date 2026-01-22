@@ -1,6 +1,6 @@
 '''
 Aqui estan las preguntas, cada nodo del grafo tiene el texto de la pregunta y contiene un
-arbol de respuestas.
+arbol de respuestas. Esta orientado para que dos personas jueguen al mismo tiempo
 '''
 
 import random
@@ -8,11 +8,8 @@ import random
 class NodoPregunta:
     def __init__(self, id_pregunta, texto_pregunta, arbol_respuestas):
         self.id = id_pregunta
-        
-        #la pregunta se encuentra en el nodo del grafo
-        self.texto = texto_pregunta
-        
-        #este es el arbol de respuestas asociado
+        self.texto_p1 = texto_p1
+        self.texto_p2 = texto_p2
         self.arbol = arbol_respuestas
         
 class GrafoCuestionario:
@@ -32,14 +29,14 @@ class GrafoCuestionario:
             
             #se inicializa su lista de adyacencia en primera instancia vacia
             if p_id not in self.adyacencia:
-                self.adyacencia[p_id = []
+                self.adyacencia[p_id] = []
                 
         def conenctar_nodos(self):
             
             #conecta todos con todos, justificando los saltos de una pregunta a otra
             ids = list(self.nodos.keys())
             for id_inicio in ids:
-                for id_destino in dis:
+                for id_destino in ids:
                     if id_inicio != id_destino:
                         self.adyacencia[id_inicio].append(id_destino)
                
